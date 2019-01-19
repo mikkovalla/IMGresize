@@ -8,4 +8,3 @@ Tämä on Tiralabra-2019 harjoitustyön repo
 ## Viikkoraportit
 [Viikko 1](../master/Viikkoraportit/viikko_1.md)
 
-## Aikataulu
