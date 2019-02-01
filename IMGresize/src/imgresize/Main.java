@@ -5,6 +5,7 @@
  */
 package imgresize;
 
+import imgresize.bilinear.Bilinear;
 import java.awt.image.BufferedImage;
 
 /**
@@ -19,8 +20,14 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ResizedImageCreator cr = new ResizedImageCreator();
-        BufferedImage bi = cr.openImage();
-        cr.saveImage("bilinear", bi);
+        Bilinear bilinear = new Bilinear();
+        BufferedImage originalImage = cr.openImage();
+        
+        //Parameters hardcoded at this stage for testing
+        BufferedImage bilinearmodifiedImage = bilinear.resizeBufferedImageWithBilinearInterpolation(originalImage, 3f, 3f);
+        
+        //Create new image
+        cr.saveImage("bilinear-2", bilinearmodifiedImage);
     }
     
 }
