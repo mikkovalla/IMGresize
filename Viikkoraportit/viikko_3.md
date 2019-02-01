@@ -12,6 +12,8 @@ Nyt bilineaarinen algoritmi kuitenkin vihdoin toimii täysin oikein. Seuraavaksi
 
 Aikaa paloi paljon. En osannut yhtään kuvitella että aikaa menisi näin tuhottomasti, ja siitä syystä testaus jäi palautuksesta uupumaan. Bitti tason koodi sekä matemaattinen osa olivat paljon hankalampia kuin osasin kuvitella. Seuraava etappi on ennen vertaisarviointia tarkistaa koodin kommentit, tehdä testit loppuun ja ottaa käyttöön Apachen tarjoama luokka ja luoda vertailu. Se voi olla että kun tätä luetaan osa mainituista on jo tehty koska palautan viikko 3 nyt ja jatkan yötä vasten.
 
+EDIT: Maven JUnit ja Surefire ei toimi. Projekti toimii muuten mutta testejä ei ajeta. NB projektissa toimivat mutta maven projektina ei. Tein Stackoverflowsta löytyneiden sekä Mavenin sivujen ohjeiden mukaan mutta ei toimi. Olisiko antaa vinkkiä missä on vika?
+
 ##### Mitä teen seuraavaksi?
 
 Seuraavaksi kirjoitan luokalle kattavat testit joita en ehtinyt palautukseen mennessä tekemään, sekä otan käyttöön Apachen tarjoaman valmiin bilineaarisen luokan ja toteutan vertauksen nopeudessa sekä kuvan koossa alkuperäiseen kuvaan verrattuna. Ohjeiden mukaan muunnan Netbeans projektin Maven projektiksi ja korjaan ärsyttävän bugin ohjelman käyttö luokassa. 
