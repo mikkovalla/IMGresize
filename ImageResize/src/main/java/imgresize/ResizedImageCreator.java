@@ -28,7 +28,7 @@ public class ResizedImageCreator {
     public BufferedImage openImage() {
         try {
             this.fileName = reader.readOriginalImageNameFromDisk();
-            this.file = new File(System.getProperty("user.dir") + "//" + this.fileName + ".jpg");
+            this.file = new File(System.getProperty("user.dir") + "//src//main//resources//" + this.fileName + ".jpg");
             System.out.println("Image file found at: " + this.file.toString());
             this.image = ImageIO.read(this.file);
             System.out.println("Image read succesfully!");
