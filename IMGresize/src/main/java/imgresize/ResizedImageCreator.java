@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import performance.Performance;
 
 /**
  * Class provides methods to read original image and save modified version using
@@ -22,6 +23,7 @@ public class ResizedImageCreator {
     FileFinder fileFinder = new FileFinder();
     private final String start = System.getProperty("user.dir");
     MyArrayList<File> myFiles = new MyArrayList<>();
+    Performance performance = new Performance();
 
     /**
      * Method reads image from disk
@@ -40,6 +42,7 @@ public class ResizedImageCreator {
             this.fileName = reader.readOriginalImageNameFromDisk();
             this.file = new File(fileFinder.getImageFilePath(this.fileName));
             System.out.println("Image file found at: " + this.file.toString());
+            System.out.println("Original image size: " + performance.fileSizeInKiloBytes(this.file));
 
             this.image = ImageIO.read(this.file);
             System.out.println("Image source read succesfully!");
@@ -66,6 +69,7 @@ public class ResizedImageCreator {
             ImageIO.write(img, "jpg", newImageFile);
             System.out.println("            **********************             ");
             System.out.println("New image succesfully created at " + newImageFile.getPath());
+            System.out.println("New image size with method " + methodName + ": " + performance.fileSizeInKiloBytes(newImageFile));
         } catch (IOException ex) {
             System.out.println("Something went wrong! " + ex);
         }
