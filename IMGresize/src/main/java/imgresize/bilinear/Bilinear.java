@@ -64,8 +64,8 @@ public class Bilinear {
      * Method performs bilinear image resizing.
      *
      * @param image Buffered image object
-     * @param horisontal
-     * @param vertical
+     * @param horisontal float value for width 
+     * @param vertical flaot value for height
      * @return Bilinear interpolated image
      */
     public BufferedImage resizeBufferedImageWithBilinearInterpolation(BufferedImage image, float horisontal, float vertical) {

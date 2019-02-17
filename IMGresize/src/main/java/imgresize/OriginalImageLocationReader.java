@@ -22,7 +22,6 @@ public class OriginalImageLocationReader {
     public String readOriginalImageNameFromDisk() {
         try {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Please give image name: ");
             String source = scanner.nextLine();
             return source;
         } catch (Exception ex) {

@@ -7,6 +7,8 @@
     <packaging>jar</packaging>
     <properties>
         <jdk.version>1.8</jdk.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -16,6 +18,12 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>4.2</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <build>
@@ -36,6 +44,12 @@
                         <groupId>org.apache.maven.surefire</groupId>
                         <artifactId>surefire-junit4</artifactId>
                         <version>2.8</version>
+                    </dependency>
+                    <!-- https://mvnrepository.com/artifact/org.imgscalr/imgscalr-lib -->
+                    <dependency>
+                        <groupId>org.imgscalr</groupId>
+                        <artifactId>imgscalr-lib</artifactId>
+                        <version>4.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
