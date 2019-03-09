@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fi"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileFinder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">IMGresize</a> &gt; <a href="index.source.html" class="el_package">imgresize</a> &gt; <span class="el_source">FileFinder.java</span></div><h1>FileFinder.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package imgresize;
+
+import datastructure.MyArrayList;
+import java.io.File;
+
+/**
+ * Class purpose it to traverse local file structure to find images for the user
+ * to choose from
+ *
+ * @author mikko
+ */
+<span class="fc" id="L17">public class FileFinder {</span>
+
+    //MyArrayList is my own implementation -&gt; datastructure.MyArrayList.java
+<span class="fc" id="L20">    MyArrayList&lt;File&gt; list = new MyArrayList&lt;&gt;();</span>
+<span class="fc" id="L21">    MyArrayList&lt;String&gt; fileNames = new MyArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">    MyArrayList&lt;String&gt; filePath = new MyArrayList&lt;&gt;();</span>
+
+    /**
+     * Recursive method to add to fileNames list image files
+     *
+     * MyArrayList is my own implementation -&gt; datastructure.MyArrayList.java
+     *
+     * @param directoryName directory where to look for files
+     * @param files List of files found
+     */
+    public void findImageFiles(String directoryName, MyArrayList&lt;File&gt; files) {
+
+<span class="nc" id="L34">        File directory = new File(directoryName);</span>
+
+<span class="nc" id="L36">        File[] fList = directory.listFiles();</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (fList != null) {</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            for (File file : fList) {</span>
+
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                if (file.isFile()) {</span>
+<span class="nc bnc" id="L41" title="All 6 branches missed.">                    if (file.toString().endsWith(&quot;.png&quot;) || file.toString().endsWith(&quot;.jpg&quot;) || file.toString().endsWith(&quot;.jpeg&quot;)) {</span>
+<span class="nc" id="L42">                        fileNames.add(file.getName());</span>
+<span class="nc" id="L43">                        filePath.add(file.getPath());</span>
+                    }
+<span class="nc bnc" id="L45" title="All 2 branches missed.">                } else if (file.isDirectory()) {</span>
+<span class="nc" id="L46">                    findImageFiles(file.getAbsolutePath(), this.list);</span>
+                }
+            }
+        } else {
+<span class="nc" id="L50">            System.out.println(&quot;No image files present!&quot;);</span>
+        }
+<span class="nc" id="L52">    }</span>
+
+    /**
+     * Method to print out file image file names for the user
+     */
+    public void tulosta() {
+<span class="nc" id="L58">        fileNames.forEach(name -&gt; {</span>
+<span class="nc" id="L59">            System.out.println(name);</span>
+<span class="nc" id="L60">        });</span>
+<span class="nc" id="L61">    }</span>
+
+    /**
+     * Method finds the path based on given file name
+     *
+     * This is a really stupid method, since it would be alot easier to
+     * implement it with a class variable HashMap, but I couldn't get my own
+     * hashmap version working properly so I used two lists I hope are in sync.
+     *
+     * @param imageFileName name of the image the user wants
+     * @return user wanted image's path
+     */
+    public String getImageFilePath(String imageFileName) {
+<span class="nc" id="L74">        int index = 0;</span>
+
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        for (int i = 0; i &lt; fileNames.size(); i++) {</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            if (fileNames.get(i).equals(imageFileName)) {</span>
+<span class="nc" id="L78">                index = i;</span>
+            }
+        }
+<span class="nc" id="L81">        String path = filePath.get(index);</span>
+<span class="nc" id="L82">        return path;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

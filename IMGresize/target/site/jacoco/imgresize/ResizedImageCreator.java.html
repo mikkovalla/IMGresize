@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fi"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ResizedImageCreator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">IMGresize</a> &gt; <a href="index.source.html" class="el_package">imgresize</a> &gt; <span class="el_source">ResizedImageCreator.java</span></div><h1>ResizedImageCreator.java</h1><pre class="source lang-java linenums">package imgresize;
+
+import datastructure.MyArrayList;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import performance.Performance;
+
+/**
+ * Class provides methods to read original image and save modified version using
+ *
+ * @see imgresize.Main
+ *
+ * @author mikko
+ */
+<span class="fc" id="L17">public class ResizedImageCreator {</span>
+
+<span class="fc" id="L19">    OriginalImageLocationReader reader = new OriginalImageLocationReader();</span>
+    private File file;
+    private BufferedImage image;
+<span class="fc" id="L22">    private String fileName = &quot;&quot;;</span>
+<span class="fc" id="L23">    FileFinder fileFinder = new FileFinder();</span>
+<span class="fc" id="L24">    private final String start = System.getProperty(&quot;user.dir&quot;);</span>
+<span class="fc" id="L25">    MyArrayList&lt;File&gt; myFiles = new MyArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">    Performance performance = new Performance();</span>
+
+    /**
+     * Method reads image from disk
+     *
+     * @return Buffered image object.
+     */
+    public BufferedImage openImage() {
+        try {
+<span class="nc" id="L35">            System.out.println(&quot;Image files found: &quot;);</span>
+<span class="nc" id="L36">            fileFinder.findImageFiles(start, this.myFiles);</span>
+<span class="nc" id="L37">            fileFinder.tulosta();</span>
+<span class="nc" id="L38">            System.out.println(&quot;-----------------------------------------------------------------&quot;);</span>
+<span class="nc" id="L39">            System.out.print(&quot;Which one would you like to resize?&quot;);</span>
+<span class="nc" id="L40">            System.out.println(&quot; -&gt; please write the exact file name including extension - Otherwise the program will select the first image file available&quot;);</span>
+
+<span class="nc" id="L42">            this.fileName = reader.readOriginalImageNameFromDisk();</span>
+<span class="nc" id="L43">            this.file = new File(fileFinder.getImageFilePath(this.fileName));</span>
+<span class="nc" id="L44">            System.out.println(&quot;Image file found at: &quot; + this.file.toString());</span>
+<span class="nc" id="L45">            System.out.println(&quot;Original image size: &quot; + performance.fileSizeInKiloBytes(this.file));</span>
+
+<span class="nc" id="L47">            this.image = ImageIO.read(this.file);</span>
+<span class="nc" id="L48">            System.out.println(&quot;Image source read succesfully!&quot;);</span>
+
+<span class="nc" id="L50">        } catch (IOException ex) {</span>
+<span class="nc" id="L51">            System.out.println(&quot;Error: &quot; + ex);</span>
+<span class="nc" id="L52">        }</span>
+<span class="nc" id="L53">        return this.image;</span>
+    }
+
+    /**
+     * Method saves new resized image to disk
+     *
+     * @param methodName name of the method used to resize the given image to
+     * distinguish between different files.
+     * @param img Buffered image object to be saved returned by the used
+     * resizing algorithm
+     */
+    public void saveImage(String methodName, BufferedImage img) {
+        try {
+            //Redundant line. Have to refractor to use this.file object literal.
+<span class="fc" id="L67">            File newImageFile = new File(System.getProperty(&quot;user.dir&quot;) + &quot;//&quot; + methodName + &quot;-&quot; + this.fileName + &quot;.jpg&quot;);</span>
+
+<span class="fc" id="L69">            ImageIO.write(img, &quot;jpg&quot;, newImageFile);</span>
+<span class="fc" id="L70">            System.out.println(&quot;            **********************             &quot;);</span>
+<span class="fc" id="L71">            System.out.println(&quot;New image succesfully created at &quot; + newImageFile.getPath());</span>
+<span class="fc" id="L72">            System.out.println(&quot;New image size with method &quot; + methodName + &quot;: &quot; + performance.fileSizeInKiloBytes(newImageFile));</span>
+<span class="nc" id="L73">        } catch (IOException ex) {</span>
+<span class="nc" id="L74">            System.out.println(&quot;Something went wrong! &quot; + ex);</span>
+<span class="fc" id="L75">        }</span>
+<span class="fc" id="L76">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
