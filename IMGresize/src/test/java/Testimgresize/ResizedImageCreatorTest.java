@@ -17,7 +17,7 @@ public class ResizedImageCreatorTest {
 
     private File file;
     private BufferedImage image;
-    private final String fileName = "chatteri";
+    private final String fileName = "eka";
 
     /**
      * Test of openImage method, of class ResizedImageCreator. Scanner class

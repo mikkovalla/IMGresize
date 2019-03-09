@@ -6,14 +6,14 @@ import org.imgscalr.Scalr;
 
 /**
  * Class that uses ImgScalr library for image manipulation
- *
+ * https://github.com/rkalla/imgscalr
  * @author mikko
  */
 public class ImgScalr {
 
     /**
      * Method to create a resized image using ImgScalr librarys Balanced method
-     *
+     * The method doesn't seem to use the vertical parameter to scale the image height
      * 
      * @param image Buffered image to be resized
      * @param horisontal float value for width

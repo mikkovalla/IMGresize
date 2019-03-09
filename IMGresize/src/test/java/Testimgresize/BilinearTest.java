@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 public class BilinearTest {
 
     Bilinear bilinear;
-    private final String fileName = "chatteri";
+    private final String fileName = "eka";
 
     @Before
     public void setUp() {

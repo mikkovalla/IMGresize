@@ -69,9 +69,9 @@ public class Bilinear {
      * @return Bilinear interpolated image
      */
     public BufferedImage resizeBufferedImageWithBilinearInterpolation(BufferedImage image, float horisontal, float vertical) {
-        //Parametrinä saadun kuvan leveys - Image width
+        //Parametrinä saatu leveys - Image width - uusi kuva
         int width = (int) (image.getWidth() * horisontal);
-        //Parametrinä saadun kuvan korkeus - Image height
+        //Parametrinä saatu korkeus - Image height - uusi kuva
         int height = (int) (image.getHeight() * vertical);
 
         //Uusi Buffered kuva olio jolle suoritetaan bilineaarinen interpolaatio - New Buffered image instance to which the algo underneath performs bilinear interpolation

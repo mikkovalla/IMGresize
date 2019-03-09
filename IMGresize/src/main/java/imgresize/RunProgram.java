@@ -42,10 +42,10 @@ public class RunProgram {
         BufferedImage originalImage = this.cr.openImage();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Please give the first value --> ");
+        System.out.print("Please give the desired width value --> ");
         float value1 = scanner.nextInt();
         System.out.println("-------------------------------");
-        System.out.print("Please give the second value --> ");
+        System.out.print("Please give the desired height value --> ");
         float value2 = scanner.nextInt();
         System.out.println("--------------------------------");
 
