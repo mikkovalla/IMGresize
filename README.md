@@ -17,6 +17,6 @@ Tämä on Tiralabra-2019 harjoitustyön repo
 - [Viikko 6](../master/Viikkoraportit/viikko_6.md)
 
 ## Ohjelmatiedostot
-- [Testikattavuus](../master/IMGresize/target/site/jacoco/index.html)
-- [JAR](../master/Viikkoraportit/viikko_2.md)
+- [Testikattavuus](../master/IMGresize/target/site/jacoco/jacoco_report.jpg)
+- [JAR (JAR ei generoitunut oikein ilmeisesti)](../master/IMGresize/target/IMGresize-1.0-SNAPSHOT.jar)
 - [Javadoc](../master/Viikkoraportit/viikko_3.md)

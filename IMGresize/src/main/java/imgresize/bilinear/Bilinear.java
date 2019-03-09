@@ -17,7 +17,6 @@ import java.awt.image.BufferedImage;
  * https://www.codementor.io/tips/7814203938/resize-an-image-with-bilinear-interpolation-without-imresize
  * https://en.wikipedia.org/wiki/Bilinear_interpolation
  * https://stackoverflow.com/questions/30182467/how-to-implement-linear-interpolation-method-in-java-array
- * https://stackoverflow.com/questions/4353525/floating-point-linear-interpolation?noredirect=1&lq=1
  * https://unity3d.com/es/learn/tutorials/topics/scripting/linear-interpolation
  * https://gisgeography.com/bilinear-interpolation-resampling/
  * https://gist.github.com/NickBeeuwsaert/5753386
@@ -48,12 +47,12 @@ public class Bilinear {
      * Method performs bilinear interpolation of parameters. Method receives 6
      * float parameters:
      *
-     * @param firstValueToInterpolateFrom
-     * @param firstValueInterpolateTo
-     * @param secondValueToInterpolateFrom
-     * @param secondValueInterpolateTo
-     * @param firstHowFarToInterpolate
-     * @param secondHowFarToInterpolate
+     * @param firstValueToInterpolateFrom the value from which to interpolate
+     * @param firstValueInterpolateTo the value to interpolate to
+     * @param secondValueToInterpolateFrom the value from which to interpolate
+     * @param secondValueInterpolateTo the value to interpolate to
+     * @param firstHowFarToInterpolate value of how far we interpolate
+     * @param secondHowFarToInterpolate value of how far we interpolate
      * @return float value of linear interpolation based on parameters.
      */
     public float bilinearInterpolation(float firstValueToInterpolateFrom, float firstValueInterpolateTo, float secondValueToInterpolateFrom, float secondValueInterpolateTo, float firstHowFarToInterpolate, float secondHowFarToInterpolate) {

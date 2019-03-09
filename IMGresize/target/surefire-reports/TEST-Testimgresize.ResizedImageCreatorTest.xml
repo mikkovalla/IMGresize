@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="Testimgresize.ResizedImageCreatorTest" time="1.641" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="Testimgresize.ResizedImageCreatorTest" time="1.209" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib"/>
@@ -20,7 +20,7 @@
     <property name="basedir" value="/Users/mikko/Desktop/Projektit/IMGresize/IMGresize"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefirebooter8744458977172376944.jar:/Users/mikko/.m2/repository/org/jacoco/org.jacoco.agent/0.7.7.201606060606/org.jacoco.agent-0.7.7.201606060606-runtime.jar"/>
+    <property name="surefire.real.class.path" value="/Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefirebooter8594172151641008892.jar:/Users/mikko/.m2/repository/org/jacoco/org.jacoco.agent/0.7.7.201606060606/org.jacoco.agent-0.7.7.201606060606-runtime.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/dz/x26hb40d5v314mcw476z6fgc0000gn/T/"/>
     <property name="line.separator" value="
 "/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="/Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefirebooter8744458977172376944.jar /Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefire6606404492623958948tmp /Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefire4927953431731383802tmp"/>
+    <property name="sun.java.command" value="/Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefirebooter8594172151641008892.jar /Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefire7468978514796314012tmp /Users/mikko/Desktop/Projektit/IMGresize/IMGresize/target/surefire/surefire5401665786110676289tmp"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fi"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -61,6 +61,6 @@
     <property name="sun.font.fontmanager" value="sun.font.CFontManager"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Testimgresize.ResizedImageCreatorTest" name="testOpenImage" time="1.282"/>
-  <testcase classname="Testimgresize.ResizedImageCreatorTest" name="testSaveImage" time="0.356"/>
+  <testcase classname="Testimgresize.ResizedImageCreatorTest" name="testOpenImage" time="0.932"/>
+  <testcase classname="Testimgresize.ResizedImageCreatorTest" name="testSaveImage" time="0.275"/>
 </testsuite>

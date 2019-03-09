@@ -17,7 +17,6 @@ import java.awt.image.BufferedImage;
  * https://www.codementor.io/tips/7814203938/resize-an-image-with-bilinear-interpolation-without-imresize
  * https://en.wikipedia.org/wiki/Bilinear_interpolation
  * https://stackoverflow.com/questions/30182467/how-to-implement-linear-interpolation-method-in-java-array
- * https://stackoverflow.com/questions/4353525/floating-point-linear-interpolation?noredirect=1&amp;lq=1
  * https://unity3d.com/es/learn/tutorials/topics/scripting/linear-interpolation
  * https://gisgeography.com/bilinear-interpolation-resampling/
  * https://gist.github.com/NickBeeuwsaert/5753386
@@ -25,10 +24,10 @@ import java.awt.image.BufferedImage;
  *
  * @author mikko
  */
-<span class="fc" id="L28">public class Bilinear {</span>
+<span class="fc" id="L27">public class Bilinear {</span>
 
     public int getBits(int number, int n) {
-<span class="fc" id="L31">        return (number &gt;&gt; (n * 8)) &amp; 0xFF;</span>
+<span class="fc" id="L30">        return (number &gt;&gt; (n * 8)) &amp; 0xFF;</span>
     }
 
     /**
@@ -41,23 +40,23 @@ import java.awt.image.BufferedImage;
      * @return float value of linear interpolation based on parameters.
      */
     public float linearInterpolation(float a, float b, float f) {
-<span class="fc" id="L44">        return a + f * (b - a);</span>
+<span class="fc" id="L43">        return a + f * (b - a);</span>
     }
 
     /**
      * Method performs bilinear interpolation of parameters. Method receives 6
      * float parameters:
      *
-     * @param firstValueToInterpolateFrom
-     * @param firstValueInterpolateTo
-     * @param secondValueToInterpolateFrom
-     * @param secondValueInterpolateTo
-     * @param firstHowFarToInterpolate
-     * @param secondHowFarToInterpolate
+     * @param firstValueToInterpolateFrom the value from which to interpolate
+     * @param firstValueInterpolateTo the value to interpolate to
+     * @param secondValueToInterpolateFrom the value from which to interpolate
+     * @param secondValueInterpolateTo the value to interpolate to
+     * @param firstHowFarToInterpolate value of how far we interpolate
+     * @param secondHowFarToInterpolate value of how far we interpolate
      * @return float value of linear interpolation based on parameters.
      */
     public float bilinearInterpolation(float firstValueToInterpolateFrom, float firstValueInterpolateTo, float secondValueToInterpolateFrom, float secondValueInterpolateTo, float firstHowFarToInterpolate, float secondHowFarToInterpolate) {
-<span class="fc" id="L60">        return linearInterpolation(linearInterpolation(firstValueToInterpolateFrom, firstValueInterpolateTo, firstHowFarToInterpolate), linearInterpolation(secondValueToInterpolateFrom, secondValueInterpolateTo, firstHowFarToInterpolate), secondHowFarToInterpolate);</span>
+<span class="fc" id="L59">        return linearInterpolation(linearInterpolation(firstValueToInterpolateFrom, firstValueInterpolateTo, firstHowFarToInterpolate), linearInterpolation(secondValueToInterpolateFrom, secondValueInterpolateTo, firstHowFarToInterpolate), secondHowFarToInterpolate);</span>
     }
 
     /**
@@ -70,58 +69,58 @@ import java.awt.image.BufferedImage;
      */
     public BufferedImage resizeBufferedImageWithBilinearInterpolation(BufferedImage image, float horisontal, float vertical) {
         //Parametrinä saatu leveys - Image width - uusi kuva
-<span class="fc" id="L73">        int width = (int) (image.getWidth() * horisontal);</span>
+<span class="fc" id="L72">        int width = (int) (image.getWidth() * horisontal);</span>
         //Parametrinä saatu korkeus - Image height - uusi kuva
-<span class="fc" id="L75">        int height = (int) (image.getHeight() * vertical);</span>
+<span class="fc" id="L74">        int height = (int) (image.getHeight() * vertical);</span>
 
         //Uusi Buffered kuva olio jolle suoritetaan bilineaarinen interpolaatio - New Buffered image instance to which the algo underneath performs bilinear interpolation
         //Constructor requires an Buffered image instance,hence image.getType() method is used 
-<span class="fc" id="L79">        BufferedImage BilenearInterpolatedImage = new BufferedImage(width, height, image.getType());</span>
+<span class="fc" id="L78">        BufferedImage BilenearInterpolatedImage = new BufferedImage(width, height, image.getType());</span>
 
         //Algoritmi alkaa tästä - Algorithm starts here.
         //Ulompi for looppi iteroi kuvan leveyden mukaan - Loop iterates by image width
-<span class="fc bfc" id="L83" title="All 2 branches covered.">        for (int x = 0; x &lt; width; ++x) {</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        for (int x = 0; x &lt; width; ++x) {</span>
             //Sisempi for looppi iteroi kuvan korkeuden mukaan - Loop iterates by image height
-<span class="fc bfc" id="L85" title="All 2 branches covered.">            for (int y = 0; y &lt; height; ++y) {</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">            for (int y = 0; y &lt; height; ++y) {</span>
 
                 //Pixel position computation - pixelin sijainnin laskenta
-<span class="fc" id="L88">                float widthX = ((float) x) / width * (image.getWidth() - 1);</span>
-<span class="fc" id="L89">                float heightY = ((float) y) / height * (image.getHeight() - 1);</span>
+<span class="fc" id="L87">                float widthX = ((float) x) / width * (image.getWidth() - 1);</span>
+<span class="fc" id="L88">                float heightY = ((float) y) / height * (image.getHeight() - 1);</span>
                 
                 //Float type conversion to Int for RGB - Float tyypin konversio Int tyyppiseksi RGB arvoja varten. Konversio metodissa ei toiminut.
-<span class="fc" id="L92">                int widthXIntegerValue = (int) widthX;</span>
-<span class="fc" id="L93">                int heightYIntegerValue = (int) heightY;</span>
+<span class="fc" id="L91">                int widthXIntegerValue = (int) widthX;</span>
+<span class="fc" id="L92">                int heightYIntegerValue = (int) heightY;</span>
 
-<span class="fc" id="L95">                int rgbColor = 0;</span>
+<span class="fc" id="L94">                int rgbColor = 0;</span>
 
                 //Kuvan värit - Image colours
                 // color pixel value at pixel position 0 - 0
-<span class="fc" id="L99">                int rgbValueAtPostionWidth0Height0 = image.getRGB(widthXIntegerValue, heightYIntegerValue);</span>
+<span class="fc" id="L98">                int rgbValueAtPostionWidth0Height0 = image.getRGB(widthXIntegerValue, heightYIntegerValue);</span>
                 // color pixel value at position 1 - 0
-<span class="fc" id="L101">                int rgbValueAtPostionWidthPlus1Height0 = image.getRGB(widthXIntegerValue + 1, heightYIntegerValue);</span>
+<span class="fc" id="L100">                int rgbValueAtPostionWidthPlus1Height0 = image.getRGB(widthXIntegerValue + 1, heightYIntegerValue);</span>
                 // color pixel value at position 0 - 1
-<span class="fc" id="L103">                int rgbValueAtPostionWidth0HeightPlus1 = image.getRGB(widthXIntegerValue, heightYIntegerValue + 1);</span>
+<span class="fc" id="L102">                int rgbValueAtPostionWidth0HeightPlus1 = image.getRGB(widthXIntegerValue, heightYIntegerValue + 1);</span>
                 // color pixel value at position 1 - 1
-<span class="fc" id="L105">                int rgbValueAtPostionWidthPlus1HeightPlus1 = image.getRGB(widthXIntegerValue + 1, heightYIntegerValue + 1);</span>
+<span class="fc" id="L104">                int rgbValueAtPostionWidthPlus1HeightPlus1 = image.getRGB(widthXIntegerValue + 1, heightYIntegerValue + 1);</span>
 
                 //Linear inpterpolation of RGB values
-<span class="fc bfc" id="L108" title="All 2 branches covered.">                for (int i = 0; i &lt;= 2; ++i) {</span>
-<span class="fc" id="L109">                    float liValueOfWidth0Height0 = getBits(rgbValueAtPostionWidth0Height0, i);</span>
-<span class="fc" id="L110">                    float liValueOfWidth1Height0 = getBits(rgbValueAtPostionWidthPlus1Height0, i);</span>
-<span class="fc" id="L111">                    float liValueOfWidth0Height1 = getBits(rgbValueAtPostionWidth0HeightPlus1, i);</span>
-<span class="fc" id="L112">                    float liValueOfWidth1Height1 = getBits(rgbValueAtPostionWidthPlus1HeightPlus1, i);</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                for (int i = 0; i &lt;= 2; ++i) {</span>
+<span class="fc" id="L108">                    float liValueOfWidth0Height0 = getBits(rgbValueAtPostionWidth0Height0, i);</span>
+<span class="fc" id="L109">                    float liValueOfWidth1Height0 = getBits(rgbValueAtPostionWidthPlus1Height0, i);</span>
+<span class="fc" id="L110">                    float liValueOfWidth0Height1 = getBits(rgbValueAtPostionWidth0HeightPlus1, i);</span>
+<span class="fc" id="L111">                    float liValueOfWidth1Height1 = getBits(rgbValueAtPostionWidthPlus1HeightPlus1, i);</span>
                     
                     //Compute bilinear interpolation value
-<span class="fc" id="L115">                    int bilinearInterpolationValue = ((int) bilinearInterpolation(liValueOfWidth0Height0, liValueOfWidth1Height0, liValueOfWidth0Height1, liValueOfWidth1Height1, widthX - widthXIntegerValue, heightY - heightYIntegerValue)) &lt;&lt; (8 * i);</span>
+<span class="fc" id="L114">                    int bilinearInterpolationValue = ((int) bilinearInterpolation(liValueOfWidth0Height0, liValueOfWidth1Height0, liValueOfWidth0Height1, liValueOfWidth1Height1, widthX - widthXIntegerValue, heightY - heightYIntegerValue)) &lt;&lt; (8 * i);</span>
 
                     //bitwise OR operation -&gt; https://stackoverflow.com/questions/3312611/pipe-operator-in-java                   
-<span class="fc" id="L118">                    rgbColor = rgbColor | bilinearInterpolationValue;</span>
+<span class="fc" id="L117">                    rgbColor = rgbColor | bilinearInterpolationValue;</span>
                 }
                 //Sets new RGB value of the Buffered image
-<span class="fc" id="L121">                BilenearInterpolatedImage.setRGB(x, y, rgbColor);</span>
+<span class="fc" id="L120">                BilenearInterpolatedImage.setRGB(x, y, rgbColor);</span>
             }
         }
-<span class="fc" id="L124">        return BilenearInterpolatedImage;</span>
+<span class="fc" id="L123">        return BilenearInterpolatedImage;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

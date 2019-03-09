@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package imgresize;
 
 import datastructure.MyArrayList;
@@ -16,7 +12,7 @@ import java.io.File;
  */
 public class FileFinder {
 
-    //MyArrayList is my own implementation -> datastructure.MyArrayList.java
+    //MyArrayList is my own implementation. datastructure.MyArrayList.java
     MyArrayList<File> list = new MyArrayList<>();
     MyArrayList<String> fileNames = new MyArrayList<>();
     MyArrayList<String> filePath = new MyArrayList<>();
@@ -24,7 +20,7 @@ public class FileFinder {
     /**
      * Recursive method to add to fileNames list image files
      *
-     * MyArrayList is my own implementation -> datastructure.MyArrayList.java
+     * MyArrayList is my own implementation - datastructure.MyArrayList.java
      *
      * @param directoryName directory where to look for files
      * @param files List of files found
