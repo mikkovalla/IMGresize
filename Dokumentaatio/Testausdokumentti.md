@@ -11,6 +11,8 @@ Pyrin niin lähelle kuin mahdollista 100% testi kattavuutta. Testikattavuuden se
 
 Ohjelmaan on rakennettu apu metodit Performance luokkaan mitkä mittaavat eri algoritmien ajan käytön sekä koko-muokatun kuvan tiedoston koon. 
 
+Tässä on nyt huomioitava että vaikka Scalr dokumentointi sanoo että kuva generoidaan annettujen parametrien mukaan niin vaikuttaisi ettei Scalr metodi ota huomioon annettua kuvan korkeutta ollenkaan. Tämä tulee esille jos antaa parametreinä 2 ja 4.
+
 Alla on taulukoituna tähän mennessä kirjaamani testit:
 
  - Alkuperäinen kuvan koko 68.75 kb
