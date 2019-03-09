@@ -16,8 +16,3 @@ Tämä on Tiralabra-2019 harjoitustyön repo
 - [Viikko 5](../master/Viikkoraportit/viikko_5.md)
 - [Viikko 6](../master/Viikkoraportit/viikko_6.md)
 
-## Ohjelman tiedostot
-- [Testikattavuus](../master/Viikkoraportit/viikko_1.md)
-- [Javadoc](../master/Viikkoraportit/viikko_1.md)
-- [JAR tiedosto](../master/Viikkoraportit/viikko_1.md)
-
